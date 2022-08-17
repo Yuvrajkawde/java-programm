@@ -1,0 +1,163 @@
+import java.util.Scanner;
+
+class Guesser
+{
+	int guessNum;
+	public int guessNumber() 
+	{
+		Scanner sc= new Scanner(System.in);
+		System.out.println("guesser kindly guess the number ");
+		guessNum = sc.nextInt();
+		
+		return guessNum;
+	}
+}
+
+
+
+class Player
+{
+	int pguessNum;
+	public int guessNumber() 
+	{
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Player kindly guess the number");
+		pguessNum = sc.nextInt();
+		return pguessNum;
+	}
+}
+
+
+class Umpire
+{
+	int numFromGuesser;
+	int numFromPlayer1;
+	int numFromPlayer2;
+	int numFromPlayer3;
+	int numFromPlayer4;
+	
+	public void collectNumFromGuesser() 
+	{
+		Guesser g = new Guesser();
+		numFromGuesser= g.guessNumber();
+	}
+	
+	
+	public void collectNumFromPlayer() 
+	{
+		Player p1 = new Player();
+		Player p2 = new Player();
+		Player p3 = new Player();
+		Player p4 = new Player();
+		
+		numFromPlayer1 = p1.guessNumber();
+		numFromPlayer2 = p2.guessNumber();
+		numFromPlayer3 = p3.guessNumber();
+		numFromPlayer4 = p4.guessNumber();
+	}
+	
+	
+	void Compair()
+	{		
+			
+			if(numFromGuesser == numFromPlayer1) 
+			{
+				//----------------------------for 1----------------------------------------------------------------------------------------------------
+					if(numFromGuesser== numFromPlayer2 && numFromGuesser== numFromPlayer3&& numFromGuesser== numFromPlayer4) 
+					{
+						System.out.println("game tied all 4 players gave correct answer");
+					}
+					else if(numFromGuesser== numFromPlayer2 && numFromGuesser== numFromPlayer3) 
+					{
+						System.out.println("player 1 player 2 and player 3 won the game");
+					}
+					else if(numFromGuesser== numFromPlayer4 && numFromGuesser== numFromPlayer3) 
+					{
+						System.out.println("player 1 player 3 and player 4 won the game");
+					}
+					else if(numFromGuesser== numFromPlayer2 && numFromGuesser== numFromPlayer4) 
+					{
+						System.out.println("player 1 player 2 and player 4 won the game");
+					}
+					else if(numFromGuesser== numFromPlayer2) 
+					{
+						System.out.println("player 1 and player 2 won the game");
+					}
+					else if(numFromGuesser== numFromPlayer3) 
+					{
+						System.out.println("player 1 and player 3 won the game");
+					}			
+					else if(numFromGuesser== numFromPlayer4) 
+					{
+						System.out.println("player 1 and player 4 won the game");
+					}			
+					else
+					{
+					System.out.println("player 1 won the match");
+					}
+			}
+			
+			
+			//------------------------------for 2----------------------------------------------------------------------------------------------------
+			else if(numFromGuesser == numFromPlayer2) 
+			{
+				 if(numFromGuesser == numFromPlayer3 && numFromGuesser == numFromPlayer4) 
+				{
+					 System.out.println("\n player 2  player 3 and player 4 won the game");
+				}
+				 else if(numFromGuesser == numFromPlayer3)
+				 {
+					 System.out.println("\n player 2 and player 3 won the game");
+				 }
+				 else if(numFromGuesser == numFromPlayer4)
+				 {
+					 System.out.println("\n player 2 and player 4 won the game");
+				 }
+				 else
+				 {
+					 System.out.println("player 2 won the game");
+				 }			
+			}
+			
+			
+			
+			
+			//------------------------for 3-----------------------------------------------------------------------------------------------------------
+			else if(numFromGuesser == numFromPlayer3) 
+			{
+				if(numFromGuesser == numFromPlayer4) 
+				{
+					System.out.println("player 3 & player 4 won the game");
+				}
+				else 
+				{
+				System.out.println("player 3 won the game");
+				}
+			}
+			//--------------------for 4---------------------------------------------------------------------------------------------------------------
+			else if(numFromGuesser == numFromPlayer4)
+			{
+				System.out.println("player 4 won the game");
+			}
+			else
+			{
+				System.out.println("game lost! try again");
+			}
+		
+	}
+		
+}
+
+
+public class LaunchGame 
+{
+
+	public static void main(String[] args)
+	{
+		Umpire u = new Umpire();
+		u.collectNumFromGuesser();
+		u.collectNumFromPlayer();
+		u.Compair();
+	}
+
+}
